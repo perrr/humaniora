@@ -53,6 +53,7 @@ public class Lot {
 	}
 	
 	public void placeObjectOnLot(int tile, Object object) {
+		object.setTile(tile);
 		objectsOnLot.get(tile).add(object);
 	}
 	
@@ -72,4 +73,25 @@ public class Lot {
 		return objects;
 	}
 
+	public void removeObjectFromLot(Object object) {
+		objectsOnLot.get(object.getTile()).remove(object);
+	}
+	
+	public void moveObject(Object object, int toTile) {
+		removeObjectFromLot(object);
+		objectsOnLot.get(toTile).add(object);
+		object.setTile(toTile);
+	}
+	
+	public ArrayList<Action> getAvailableActions(Human human) {
+		ArrayList<Action> availableActions = new ArrayList<>();
+		
+		for (Object object : getAllObjectsOnLot()) {
+			if (!object.isInUse() || object.getUsedBy() == human) {
+				availableActions.add(new Action(human, object));
+			}
+		}
+		
+		return availableActions;
+	}
 }

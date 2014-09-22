@@ -26,4 +26,7 @@ public class Action {
 		this.object = object;
 	}
 	
+	public String toString() {
+		return object.getName() + " in use by " + human.getFullName();
+	}
 }

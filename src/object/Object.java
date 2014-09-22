@@ -6,6 +6,8 @@ public abstract class Object {
 	private final int price;
 	private final int length;
 	private final int width;
+	private Human inUseBy;
+	private int tile;
 	private int rotation; // a number from 0 to 3
 	
 	public Object(String name, int price, int length, int width) {
@@ -14,6 +16,7 @@ public abstract class Object {
 		this.length = length;
 		this.width = width;
 		rotation = 0;
+		inUseBy = null;
 	}
 
 	public String getName() {
@@ -50,5 +53,25 @@ public abstract class Object {
 	
 	public String toString() {
 		return name;
+	}
+	
+	public void setTile(int tile) {
+		this.tile = tile;
+	}
+	
+	public int getTile() {
+		return tile;
+	}
+	
+	public Human getUsedBy() {
+		return inUseBy;
+	}
+	
+	public void setUsedBy(Human human) {
+		inUseBy = human;
+	}
+	
+	public boolean isInUse() {
+		return inUseBy != null;
 	}
 }
