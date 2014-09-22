@@ -36,4 +36,8 @@ public class Human {
 		this.gender = gender;
 	}
 	
+	public String toString() {
+		return firstName + " " + lastName;
+	}
+	
 }
