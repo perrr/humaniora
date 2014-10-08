@@ -7,7 +7,7 @@ public abstract class Object {
 	private final int length;
 	private final int width;
 	private Human inUseBy;
-	private int tile;
+	private Tile tile;
 	private int rotation; // a number from 0 to 3
 	
 	public Object(String name, int price, int length, int width) {
@@ -55,11 +55,11 @@ public abstract class Object {
 		return name;
 	}
 	
-	public void setTile(int tile) {
+	public void setTile(Tile tile) {
 		this.tile = tile;
 	}
 	
-	public int getTile() {
+	public Tile getTile() {
 		return tile;
 	}
 	
